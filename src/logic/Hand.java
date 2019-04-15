@@ -4,8 +4,11 @@ public class Hand {
 
 	private Card[] handCards = new Card[10];
 
+	private int cardsLeft;
+
 	public Hand(Card[] c) {
 		this.handCards = c;
+		this.cardsLeft = 10;
 	}
 
 	public void orderHand() {
@@ -23,6 +26,21 @@ public class Hand {
 
 	public Card[] getHandCards() {
 		return this.handCards;
+	}
+
+	public int getCardsLeft() {
+		return this.cardsLeft;
+	}
+
+	public boolean decreaseCardsLeft() {
+		this.cardsLeft--;
+		if (cardsLeft < 0)
+			return false;
+		return true;
+	}
+
+	public void resetCardsLeft() {
+		this.cardsLeft = 10;
 	}
 
 }

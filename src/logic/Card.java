@@ -10,15 +10,32 @@ public class Card {
 
 	private int valor;
 
-	private BufferedImage image;
+	private int x, y;
+
+	private BufferedImage imageDown;
+
+	private BufferedImage imageUp;
+
+	private BufferedImage imageLeft;
+
+	private BufferedImage imageRight;
 
 	private boolean played = false;
 
-	public Card(int t, int s, int v, BufferedImage i) {
+	private boolean special = false;
+
+	private boolean movement = false;
+
+	private boolean inTable = true;
+
+	public Card(int t, int s, int v, BufferedImage d, BufferedImage u, BufferedImage l, BufferedImage r) {
 		this.type = t;
 		this.suit = s;
 		this.valor = v;
-		this.image = i;
+		this.imageDown = d;
+		this.imageUp = u;
+		this.imageLeft = l;
+		this.imageRight = r;
 	}
 
 	public int getType() {
@@ -33,8 +50,20 @@ public class Card {
 		return this.valor;
 	}
 
-	public BufferedImage getImage() {
-		return this.image;
+	public BufferedImage getImageDown() {
+		return this.imageDown;
+	}
+
+	public BufferedImage getImageUp() {
+		return this.imageUp;
+	}
+
+	public BufferedImage getImageLeft() {
+		return this.imageLeft;
+	}
+
+	public BufferedImage getImageRight() {
+		return this.imageRight;
 	}
 
 	public boolean getPlayed() {
@@ -43,6 +72,46 @@ public class Card {
 
 	public void setPlayed(boolean b) {
 		this.played = b;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public void setSpecial(boolean b) {
+		this.special = b;
+	}
+
+	public boolean getSpecial() {
+		return this.special;
+	}
+
+	public void setMovement(boolean b) {
+		this.movement = b;
+	}
+
+	public boolean getMovement() {
+		return this.movement;
+	}
+
+	public void setInTable(boolean b) {
+		this.inTable = b;
+	}
+
+	public boolean getInTable() {
+		return this.inTable;
 	}
 
 }

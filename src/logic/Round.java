@@ -2,39 +2,50 @@ package logic;
 
 public class Round {
 
+	private int initialPlayer;
+
 	private int currentTurn;
 
 	private int currentPlayer;
 
 	private int currentSuit;
 
-	private int currentSpecial;
+	private Card currentSpecial;
+
+	private Card[] pile;
 
 	public Round(int p) {
 		this.currentTurn = 0;
 		this.currentPlayer = p;
+		this.initialPlayer = p;
+		this.pile = new Card[4];
 	}
 
-	public int getCurrentTurn() {
-		return this.currentTurn;
+	// TODO
+	public void playCard(Card c) {
+		this.pile[currentPlayer] = c;
+
+	}
+
+	public void increaseCurrentPlayer() {
+		this.currentPlayer++;
+		if (currentPlayer > 3)
+			currentPlayer = 0;
 	}
 
 	public boolean nextTurn() {
 		this.currentTurn++;
-		this.currentPlayer++;
-		if (currentPlayer > 3)
-			currentPlayer = 0;
 		if (currentTurn < 10)
-			return false;
-		return true;
+			return true;
+		return false;
 	}
 
-	public int getCurrentSpecial() {
+	public Card getCurrentSpecial() {
 		return this.currentSpecial;
 	}
 
-	public void setCurrentSpecial(int s) {
-		this.currentSpecial = s;
+	public void setCurrentSpecial(Card c) {
+		this.currentSpecial = c;
 	}
 
 	public int getCurrentPlayer() {
